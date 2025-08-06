@@ -51,7 +51,7 @@ print(f"\n:stethoscope: Based on your symptoms, the predicted disease is: **{pre
 import google.generativeai as genai
 import pandas as pd
 
-genai.configure(api_key="AIzaSyDJO-54h79z5dEgoIHiOPANDIJMVHZppNs")
+genai.configure(api_key.secret("AI_key"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 #symptoms = input("Enter a describtion of your symptoms:")
@@ -70,4 +70,5 @@ and what you need to do if you have it.These are the symptom{ Arjun }
 """
 
 text1 = model.generate_content([prompt])
+
 print(text1.text)
