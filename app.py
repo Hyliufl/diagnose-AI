@@ -16,7 +16,7 @@ from sklearn.metrics import accuracy_score, classification_report, roc_auc_score
 from sklearn.ensemble import RandomForestClassifier
 
 df = pd.read_excel('Disease_symptom_and_patient_profile_dataset.xlsx', engine='openpyxl')
-
+st.title("diagnose-AI")
 
 features = ['Fever', 'Cough', 'Difficulty Breathing', 'Age', 'Gender', 'Blood Pressure', 'Cholesterol Level']
 target = 'Disease'
@@ -57,7 +57,7 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 #symptoms = input("Enter a describtion of your symptoms:")
 
 data = pd.read_csv('medquad.csv', on_bad_lines='skip')
-
+st.html("<hr>")
 Arjun= st.text_input("Enter a description of your symptoms:", key="symptoms")
 
 
@@ -72,3 +72,4 @@ and what you need to do if you have it.These are the symptom{ Arjun }
 text1 = model.generate_content([prompt])
 
 print(text1.text)
+
