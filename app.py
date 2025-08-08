@@ -59,7 +59,7 @@ if st.button("Record Inputs"):
 
 #LLM
     import google.generativeai as genai
-    genai.configure(api_key=.secrets["AI_key"])
+    genai.configure(api_key=st.secrets["AI_key"])
     model = genai.GenerativeModel("gemini-2.5-flash")
     data = pd.read_csv('medquad.csv', on_bad_lines='skip')
 
@@ -74,4 +74,5 @@ if st.button("Record Inputs"):
 
     text1 = model.generate_content([prompt])
     st.write(text1.text)
+
 
