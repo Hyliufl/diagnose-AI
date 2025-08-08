@@ -74,6 +74,3 @@ if st.button("Record Inputs"):
 
     text1 = model.generate_content([prompt])
     st.write(text1.text)
-
-
-
