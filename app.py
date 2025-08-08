@@ -13,7 +13,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score, classification_report, roc_auc_score, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 
-df = pd.read_csv('Disease_symptom_and_patient_profile_dataset(1).csv')
+df = pd.read_csv('Disease_symptom_and_patient_profile_dataset.csv')
 
 # DATA PROCESSING AND PIPELINE
 features = ['Fever', 'Cough', 'Difficulty Breathing', 'Age', 'Gender', 'Blood Pressure', 'Cholesterol Level']
@@ -61,7 +61,7 @@ if st.button("Record Inputs"):
     import google.generativeai as genai
     genai.configure(api_key=st.secrets["AI_key"])
     model = genai.GenerativeModel("gemini-2.5-flash")
-    data = pd.read_csv('medquad(1).csv', on_bad_lines='skip')
+    data = pd.read_csv('medquad.csv', on_bad_lines='skip')
 
     prompt = f"""
     In a professional but also easy to understand voice, give a list of possible diseases or conditions that these symptoms
@@ -74,3 +74,4 @@ if st.button("Record Inputs"):
 
     text1 = model.generate_content([prompt])
     st.write(text1.text)
+
